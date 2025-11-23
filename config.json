@@ -1,0 +1,26 @@
+{
+  "general": {
+    "worker_count": 4,
+    "chunk_size": 10000,
+    "max_workers": 8,
+    "timeout_seconds": 300
+  },
+  "hash": {
+    "algorithm": "SHA256",
+    "pbkdf2_iterations": 100000,
+    "pbkdf2_salt_length": 32
+  },
+  "input": {
+    "csv_path": "data/sample_data.csv",
+    "csv_encoding": "utf-8",
+    "csv_delimiter": ","
+  },
+  "output": {
+    "log_path": "logs/hasher.log",
+    "results_path": "logs/results.json",
+    "verbose": true
+  },
+  "target": {
+    "hash_to_find": ""
+  }
+}
