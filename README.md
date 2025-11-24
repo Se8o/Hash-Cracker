@@ -33,6 +33,11 @@ cd Hasher
 
 2. No additional dependencies to install - uses Python standard library only!
 
+3. Quick test run:
+```bash
+python run.py
+```
+
 ## 📁 Project Structure
 
 ```
