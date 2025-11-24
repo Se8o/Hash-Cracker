@@ -112,16 +112,16 @@ Edit `config.json` to configure the engine:
 
 ## 📝 Usage
 
-### Web UI (Nejjednodušší)
+### Web UI (Easiest)
 
-1. Spusť web server:
+1. Start web server:
 ```bash
 python web_server.py
 ```
 
-2. Otevři prohlížeč na `http://localhost:8080`
+2. Open browser at `http://localhost:8080`
 
-3. Zadej data a hash, klikni na "Spustit vyhledávání"
+3. Enter data and hash, click "Start Search"
 
 ### Command Line Usage
 
@@ -191,7 +191,7 @@ INFO - Processing rate: 4081.63 items/sec
 
 ## 📊 Example CSV Files
 
-### Birth Numbers (Rodná čísla)
+### Birth Numbers
 ```csv
 # data/birth_numbers.csv
 9001011234

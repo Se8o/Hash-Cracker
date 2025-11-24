@@ -168,13 +168,13 @@ def main():
     print("=" * 60)
     print("Parallel Hash Cracking Engine - Web UI")
     print("=" * 60)
-    print(f"\nServer běží na: http://{host}:{port}")
-    print("Pro ukončení stiskněte Ctrl+C\n")
+    print(f"\nServer running at: http://{host}:{port}")
+    print("Press Ctrl+C to stop\n")
     
     try:
         httpd.serve_forever()
     except KeyboardInterrupt:
-        print("\n\nServer ukončen.")
+        print("\n\nServer stopped.")
         httpd.server_close()
 
 

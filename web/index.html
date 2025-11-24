@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -177,38 +177,38 @@
 <body>
     <div class="container">
         <h1>Parallel Hash Cracking Engine</h1>
-        <p class="subtitle">Paralelní nástroj pro vyhledávání hashů pomocí multiprocessing</p>
+        <p class="subtitle">Parallel tool for hash lookup using multiprocessing</p>
 
         <div class="info-box">
-            <strong>Jak to funguje:</strong> Nahrajte CSV soubor s daty (každý řádek = jedna hodnota).
-            Program paralelně vypočítá hashe a porovná je s hledaným hashem.
+            <strong>How it works:</strong> Upload CSV file with data (one value per line).
+            Program computes hashes in parallel and compares them with the target hash.
         </div>
 
         <form id="hashForm">
             <div class="section">
-                <label for="csvData">CSV Data (jeden záznam na řádek):</label>
+                <label for="csvData">CSV Data (one record per line):</label>
                 <textarea id="csvData" placeholder="test&#10;hello&#10;world&#10;password&#10;admin"></textarea>
-                <div class="file-info">Nebo vyberte existující soubor: data/sample_data.csv, data/birth_numbers.csv</div>
+                <div class="file-info">Or select existing file: data/sample_data.csv, data/birth_numbers.csv</div>
             </div>
 
             <div class="section">
-                <label for="targetHash">Hledaný hash:</label>
+                <label for="targetHash">Target hash:</label>
                 <input type="text" id="targetHash" placeholder="9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08">
             </div>
 
             <div class="row">
                 <div class="section">
-                    <label for="algorithm">Algoritmus:</label>
+                    <label for="algorithm">Algorithm:</label>
                     <select id="algorithm">
-                        <option value="SHA256">SHA256 (64 znaků)</option>
-                        <option value="SHA384">SHA384 (96 znaků)</option>
-                        <option value="SHA512">SHA512 (128 znaků)</option>
+                        <option value="SHA256">SHA256 (64 chars)</option>
+                        <option value="SHA384">SHA384 (96 chars)</option>
+                        <option value="SHA512">SHA512 (128 chars)</option>
                         <option value="PBKDF2">PBKDF2-HMAC</option>
                     </select>
                 </div>
 
                 <div class="section">
-                    <label for="workers">Počet workerů:</label>
+                    <label for="workers">Worker count:</label>
                     <input type="number" id="workers" value="4" min="1" max="16">
                 </div>
             </div>
@@ -225,7 +225,7 @@
                 </div>
             </div>
 
-            <button type="submit" id="runBtn">Spustit vyhledávání</button>
+            <button type="submit" id="runBtn">Start Search</button>
         </form>
 
         <div id="status" class="status"></div>
@@ -253,12 +253,12 @@
             const timeout = parseInt(document.getElementById('timeout').value);
 
             if (!csvData) {
-                showStatus('error', 'Prosím zadejte CSV data');
+                showStatus('error', 'Please enter CSV data');
                 return;
             }
 
             if (!targetHash) {
-                showStatus('error', 'Prosím zadejte hledaný hash');
+                showStatus('error', 'Please enter target hash');
                 return;
             }
 
@@ -272,9 +272,9 @@
             }
 
             runBtn.disabled = true;
-            showStatus('running', 'Spouštím paralelní zpracování...');
+            showStatus('running', 'Starting parallel processing...');
             output.classList.add('visible');
-            output.textContent = 'Inicializace...\n';
+            output.textContent = 'Initializing...\n';
             results.innerHTML = '';
 
             const config = {
@@ -321,19 +321,19 @@
                 const data = await response.json();
 
                 if (data.success) {
-                    showStatus('success', `Dokončeno! Nalezeno ${data.matches_found} shod za ${data.time.toFixed(2)}s`);
+                    showStatus('success', `Completed! Found ${data.matches_found} matches in ${data.time.toFixed(2)}s`);
                     output.textContent += '\n' + data.log;
                     
                     if (data.results && data.results.length > 0) {
                         displayResults(data.results, data.stats);
                     }
                 } else {
-                    showStatus('error', 'Chyba: ' + data.error);
+                    showStatus('error', 'Error: ' + data.error);
                     output.textContent += '\nERROR: ' + data.error;
                 }
             } catch (error) {
-                showStatus('error', 'Chyba spojení se serverem');
-                output.textContent += '\nChyba: ' + error.message;
+                showStatus('error', 'Server connection error');
+                output.textContent += '\nError: ' + error.message;
             }
 
             runBtn.disabled = false;
@@ -345,31 +345,31 @@
         }
 
         function displayResults(resultsData, stats) {
-            let html = '<h3>Výsledky:</h3>';
+            let html = '<h3>Results:</h3>';
             
             if (stats) {
                 html += `<div class="info-box">
-                    <strong>Statistiky:</strong><br>
-                    Zpracováno záznamů: ${stats.total_items}<br>
-                    Nalezeno shod: ${stats.matches_found}<br>
-                    Čas zpracování: ${stats.total_time.toFixed(2)}s<br>
-                    Rychlost: ${stats.rate.toFixed(2)} položek/s
+                    <strong>Statistics:</strong><br>
+                    Records processed: ${stats.total_items}<br>
+                    Matches found: ${stats.matches_found}<br>
+                    Processing time: ${stats.total_time.toFixed(2)}s<br>
+                    Rate: ${stats.rate.toFixed(2)} items/s
                 </div>`;
             }
 
             resultsData.forEach((result, index) => {
                 html += `<div class="result-item">
-                    <strong>Shoda #${index + 1}</strong><br>
-                    Původní hodnota: <code>${result.original}</code><br>
+                    <strong>Match #${index + 1}</strong><br>
+                    Original value: <code>${result.original}</code><br>
                     Hash: <code>${result.hash}</code><br>
-                    Worker: ${result.worker_id} | Algoritmus: ${result.algorithm}
+                    Worker: ${result.worker_id} | Algorithm: ${result.algorithm}
                 </div>`;
             });
 
             results.innerHTML = html;
         }
 
-        // Příklad preset
+        // Example preset
         document.getElementById('targetHash').value = '9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08';
         document.getElementById('csvData').value = 'test\nhello\nworld\npassword\nadmin';
         document.getElementById('algorithm').value = 'SHA256';
