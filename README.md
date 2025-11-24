@@ -112,7 +112,18 @@ Edit `config.json` to configure the engine:
 
 ## 📝 Usage
 
-### Basic Usage
+### Web UI (Nejjednodušší)
+
+1. Spusť web server:
+```bash
+python web_server.py
+```
+
+2. Otevři prohlížeč na `http://localhost:8080`
+
+3. Zadej data a hash, klikni na "Spustit vyhledávání"
+
+### Command Line Usage
 
 1. Create a CSV file with data to hash (e.g., `data/sample_data.csv`):
 ```csv
