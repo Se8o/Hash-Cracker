@@ -43,7 +43,7 @@ WEB_CONFIG = load_web_config()
 class HashServerHandler(BaseHTTPRequestHandler):
     
     def do_GET(self):
-        """Serve HTML page"""
+        """Serve HTML page and CSS file"""
         parsed_path = urlparse(self.path)
         
         if parsed_path.path == '/' or parsed_path.path == '/index.html':
@@ -53,6 +53,14 @@ class HashServerHandler(BaseHTTPRequestHandler):
             
             html_file = WEB_CONFIG['paths']['html_file']
             with open(html_file, 'rb') as f:
+                self.wfile.write(f.read())
+        elif parsed_path.path == '/style.css':
+            self.send_response(200)
+            self.send_header('Content-type', 'text/css')
+            self.end_headers()
+            
+            css_file = 'web/style.css'
+            with open(css_file, 'rb') as f:
                 self.wfile.write(f.read())
         else:
             self.send_response(404)
