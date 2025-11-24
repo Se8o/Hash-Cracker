@@ -1,0 +1,52 @@
+# Parallel Hash Cracking Engine - Example Log Output
+
+2024-11-24 10:30:15 - INFO - [MainProcess] - ============================================================
+2024-11-24 10:30:15 - INFO - [MainProcess] - PARALLEL HASH CRACKING ENGINE
+2024-11-24 10:30:15 - INFO - [MainProcess] - ============================================================
+2024-11-24 10:30:15 - INFO - [MainProcess] - Validating pipeline setup...
+2024-11-24 10:30:15 - INFO - [MainProcess] - Validation passed
+2024-11-24 10:30:15 - INFO - [MainProcess] - Creating 4 worker processes...
+2024-11-24 10:30:15 - INFO - [MainProcess] - Created 4 workers
+2024-11-24 10:30:15 - INFO - [MainProcess] - Starting worker processes...
+2024-11-24 10:30:15 - INFO - [MainProcess] - Started 4 workers
+2024-11-24 10:30:15 - INFO - [MainProcess] - Loading data into task queue...
+2024-11-24 10:30:15 - INFO - [MainProcess] - Loaded {data/sample_data.csv}
+2024-11-24 10:30:15 - INFO - [MainProcess] - Loaded 2 chunks into queue
+2024-11-24 10:30:15 - DEBUG - [MainProcess] - Sent 4 poison pills
+2024-11-24 10:30:15 - INFO - [Worker-0] - Worker 0 started processing waiting for tasks
+2024-11-24 10:30:15 - INFO - [Worker-1] - Worker 1 started processing waiting for tasks
+2024-11-24 10:30:15 - INFO - [Worker-2] - Worker 2 started processing waiting for tasks
+2024-11-24 10:30:15 - INFO - [Worker-3] - Worker 3 started processing waiting for tasks
+2024-11-24 10:30:16 - INFO - [Worker-2] - Worker 2 FOUND MATCH: test -> 9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08
+2024-11-24 10:30:16 - INFO - [Worker-0] - Worker 0 completed: 4 items in 0.85s
+2024-11-24 10:30:16 - INFO - [Worker-1] - Worker 1 completed: 3 items in 0.82s
+2024-11-24 10:30:16 - INFO - [Worker-2] - Worker 2 completed: 4 items in 0.88s
+2024-11-24 10:30:16 - INFO - [Worker-3] - Worker 3 completed: 4 items in 0.81s
+2024-11-24 10:30:16 - DEBUG - [Worker-0] - Worker 0 received poison pill
+2024-11-24 10:30:16 - DEBUG - [Worker-1] - Worker 1 received poison pill
+2024-11-24 10:30:16 - DEBUG - [Worker-2] - Worker 2 received poison pill
+2024-11-24 10:30:16 - DEBUG - [Worker-3] - Worker 3 received poison pill
+2024-11-24 10:30:16 - INFO - [MainProcess] - Waiting for workers to complete...
+2024-11-24 10:30:16 - INFO - [MainProcess] - All workers completed
+2024-11-24 10:30:16 - INFO - [Collector] - Collector started
+2024-11-24 10:30:16 - INFO - [Collector] - Saved 1 results to logs/results.json
+2024-11-24 10:30:16 - INFO - [Collector] - Collector finished
+2024-11-24 10:30:16 - INFO - [MainProcess] - 
+============================================================
+2024-11-24 10:30:16 - INFO - [MainProcess] - MATCHES FOUND: 1
+2024-11-24 10:30:16 - INFO - [MainProcess] - ============================================================
+2024-11-24 10:30:16 - INFO - [MainProcess] - 
+Match #1:
+2024-11-24 10:30:16 - INFO - [MainProcess] -   Worker ID:  2
+2024-11-24 10:30:16 - INFO - [MainProcess] -   Original:   test
+2024-11-24 10:30:16 - INFO - [MainProcess] -   Hash:       9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08
+2024-11-24 10:30:16 - INFO - [MainProcess] -   Algorithm:  SHA256
+2024-11-24 10:30:16 - INFO - [MainProcess] - 
+============================================================
+2024-11-24 10:30:16 - INFO - [MainProcess] - Pipeline completed in 1.24s
+2024-11-24 10:30:16 - INFO - [MainProcess] - Total items processed: 15
+2024-11-24 10:30:16 - INFO - [MainProcess] - Matches found: 1
+2024-11-24 10:30:16 - INFO - [MainProcess] - Processing rate: 12.10 items/sec
+2024-11-24 10:30:16 - INFO - [MainProcess] - ============================================================
+2024-11-24 10:30:16 - INFO - [MainProcess] - Pipeline completed successfully
+2024-11-24 10:30:16 - INFO - [MainProcess] - ============================================================
