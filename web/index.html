@@ -247,7 +247,7 @@
             
             const csvData = document.getElementById('csvData').value.trim();
             const targetHash = document.getElementById('targetHash').value.trim();
-            const algorithm = document.getElementById('algorithm').value;
+            let algorithm = document.getElementById('algorithm').value;
             const workers = parseInt(document.getElementById('workers').value);
             const chunkSize = parseInt(document.getElementById('chunkSize').value);
             const timeout = parseInt(document.getElementById('timeout').value);
@@ -260,6 +260,15 @@
             if (!targetHash) {
                 showStatus('error', 'Prosím zadejte hledaný hash');
                 return;
+            }
+
+            // Auto-detect algorithm based on hash length
+            if (targetHash.length === 64) {
+                algorithm = 'SHA256';
+            } else if (targetHash.length === 96) {
+                algorithm = 'SHA384';
+            } else if (targetHash.length === 128) {
+                algorithm = 'SHA512';
             }
 
             runBtn.disabled = true;
@@ -361,6 +370,21 @@
         // Příklad preset
         document.getElementById('targetHash').value = '9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08';
         document.getElementById('csvData').value = 'test\nhello\nworld\npassword\nadmin';
+        document.getElementById('algorithm').value = 'SHA256';
+
+        // Auto-update algorithm when hash changes
+        document.getElementById('targetHash').addEventListener('input', function() {
+            const hash = this.value.trim();
+            const algoSelect = document.getElementById('algorithm');
+            
+            if (hash.length === 64) {
+                algoSelect.value = 'SHA256';
+            } else if (hash.length === 96) {
+                algoSelect.value = 'SHA384';
+            } else if (hash.length === 128) {
+                algoSelect.value = 'SHA512';
+            }
+        });
     </script>
 </body>
 </html>
