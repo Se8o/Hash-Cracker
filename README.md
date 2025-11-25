@@ -355,7 +355,7 @@ Educational project - use responsibly and ethically.
 
 Built as a demonstration of parallel computing concepts in Python for cybersecurity applications.
 
-## 🔗 Related Concepts
+## Related Concepts
 
 - Multiprocessing vs Threading vs Asyncio
 - Producer-Consumer pattern
