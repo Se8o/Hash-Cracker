@@ -2,28 +2,28 @@
 
 Professional cybersecurity tool for secure hash verification and lookup using parallel processing with Python's multiprocessing.
 
-## 🎯 Project Description
+## Project Description
 
 This engine leverages **true parallelism** through `multiprocessing.Process` to efficiently process large datasets and compare cryptographic hashes across multiple CPU cores. Designed for legitimate cybersecurity purposes including penetration testing, security audits, and educational demonstrations.
 
 ### Key Features
 
-- ✅ **True Parallelism**: Uses `multiprocessing`, not threading or asyncio
-- ✅ **Multiple Hash Algorithms**: SHA256, SHA384, SHA512, PBKDF2-HMAC
-- ✅ **Producer-Consumer Pattern**: Queue-based task distribution
-- ✅ **Shared Memory**: `Manager.dict()` and `Manager.Queue()`
-- ✅ **Synchronization**: Lock and Semaphore mechanisms
-- ✅ **Chunking**: Efficient data distribution to workers
-- ✅ **Thread-Safe Logging**: Multiprocessing-safe logger with Lock
-- ✅ **Comprehensive Testing**: Unit tests for all components
-- ✅ **Standard Library Only**: No heavy dependencies
+- **True Parallelism**: Uses `multiprocessing`, not threading or asyncio
+- **Multiple Hash Algorithms**: SHA256, SHA384, SHA512, PBKDF2-HMAC
+- **Producer-Consumer Pattern**: Queue-based task distribution
+- **Shared Memory**: `Manager.dict()` and `Manager.Queue()`
+- **Synchronization**: Lock and Semaphore mechanisms
+- **Chunking**: Efficient data distribution to workers
+- **Thread-Safe Logging**: Multiprocessing-safe logger with Lock
+- **Comprehensive Testing**: Unit tests for all components
+- **Standard Library Only**: No heavy dependencies
 
-## 📋 Requirements
+## Requirements
 
 - Python 3.7 or higher
 - Standard library only (no external dependencies)
 
-## 🚀 Installation
+## Installation
 
 1. Clone the repository:
 ```bash
@@ -38,7 +38,7 @@ cd Hasher
 python run.py
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 Hasher/
@@ -67,7 +67,7 @@ Hasher/
 └── config.json                    # Configuration file
 ```
 
-## ⚙️ Configuration
+## Configuration
 
 Edit `config.json` to configure the engine:
 
@@ -110,7 +110,7 @@ Edit `config.json` to configure the engine:
 | `csv_path` | Path to input CSV file | data/sample_data.csv |
 | `hash_to_find` | Target hash to search for | "" |
 
-## 📝 Usage
+## Usage
 
 ### Web UI (Easiest)
 
@@ -189,7 +189,7 @@ INFO - Processing rate: 4081.63 items/sec
 ============================================================
 ```
 
-## 📊 Example CSV Files
+## Example CSV Files
 
 ### Birth Numbers
 ```csv
@@ -219,7 +219,7 @@ world
 data123
 ```
 
-## 🧪 Running Tests
+## Running Tests
 
 Run all tests:
 ```bash
@@ -233,7 +233,7 @@ python -m unittest test.test_pipeline
 python -m unittest test.test_config
 ```
 
-## 🔧 Hash Algorithms
+## Hash Algorithms
 
 ### SHA256 (Default)
 - **Length**: 64 hex characters
@@ -255,7 +255,7 @@ python -m unittest test.test_config
 - **Use case**: Password hashing (salted & iterated)
 - **Iterations**: Configurable (default: 100,000)
 
-## 🎓 Educational Value
+## Educational Value
 
 This project demonstrates:
 
@@ -281,7 +281,7 @@ This project demonstrates:
    - Error handling
    - Professional documentation
 
-## ⚠️ Security & Ethics
+## Security & Ethics
 
 ### Legitimate Uses
 ✅ Authorized penetration testing  
@@ -296,7 +296,7 @@ This project demonstrates:
 
 **Use responsibly and only on systems you own or have explicit permission to test.**
 
-## 📈 Performance Tips
+## Performance Tips
 
 ### Optimal Worker Count
 - Set to number of CPU cores for CPU-bound tasks
@@ -311,7 +311,7 @@ This project demonstrates:
 - Entire CSV is loaded into memory
 - For very large files, consider implementing streaming
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Workers hang or timeout
 - Check `timeout_seconds` in config
@@ -333,12 +333,12 @@ This project demonstrates:
 - Reduce `worker_count`
 - Process file in batches
 
-## 📚 Documentation
+## Documentation
 
 Complete technical documentation available in:
 - [doc/documentation.md](doc/documentation.md) - Architecture, UML diagrams, component details
 
-## 🤝 Contributing
+## Contributing
 
 This is an educational project. For improvements:
 1. Fork the repository
@@ -347,11 +347,11 @@ This is an educational project. For improvements:
 4. Ensure all tests pass
 5. Submit a pull request
 
-## 📄 License
+## License
 
 Educational project - use responsibly and ethically.
 
-## 👨‍💻 Author
+## Author
 
 Built as a demonstration of parallel computing concepts in Python for cybersecurity applications.
 
