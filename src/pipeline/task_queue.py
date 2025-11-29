@@ -1,3 +1,11 @@
+"""
+Parallel Hash Cracking Engine - Task Queue Module
+
+Author: Sebastian Lodin
+Date: November 2025
+Description: Thread-safe task queue implementation using multiprocessing.Queue
+"""
+
 from multiprocessing import Queue as MPQueue
 from typing import Any, Optional
 from src.pipeline.logger import Logger

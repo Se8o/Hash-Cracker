@@ -1,3 +1,11 @@
+"""
+Parallel Hash Cracking Engine - Timer Module
+
+Author: Sebastian Lodin
+Date: November 2025
+Description: Utility for measuring execution time
+"""
+
 import time
 from typing import Optional
 
