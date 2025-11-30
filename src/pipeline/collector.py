@@ -1,3 +1,11 @@
+"""
+Parallel Hash Cracking Engine - Collector Module
+
+Author: Sebastian Lodin
+Date: November 2025
+Description: Collector process for gathering and saving results
+"""
+
 from multiprocessing import Process, Manager
 from typing import Dict, Any, List
 import json

@@ -1,3 +1,11 @@
+"""
+Parallel Hash Cracking Engine - Receiver Module
+
+Author: Sebastian Lodin
+Date: November 2025
+Description: CSV data receiver and chunking engine
+"""
+
 import csv
 import os
 from typing import List, Dict, Any, Iterator
